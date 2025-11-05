@@ -1,0 +1,173 @@
+/* Base Styles */
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #f8fafc; /* soft white */
+  color: #0b2340; /* deep navy */
+  scroll-behavior: smooth;
+}
+
+/* Brand Colors */
+.bg-deep-navy {
+  background-color: #0b2340;
+}
+.text-gold-accent {
+  color: #d4af37;
+}
+.border-gold-accent {
+  border-color: #d4af37;
+}
+.bg-gold-accent {
+  background-color: #d4af37;
+}
+
+/* Navigation Active Link */
+.nav-link.active {
+  color: #d4af37;
+  border-bottom: 2px solid #d4af37;
+}
+
+/* Typography */
+.prose a {
+  color: #d4af37;
+  transition: color 0.3s ease;
+}
+.prose a:hover {
+  color: #b89b31;
+}
+
+/* Payment Tabs */
+.payment-tab.active-tab {
+  color: #0b2340; /* deep navy */
+  border-color: #d4af37; /* gold accent */
+}
+
+#custom-amount {
+  background-color: #fff !important;
+  color: #0b2340 !important;
+}
+#custom-amount::placeholder {
+  color: #6b7280; /* Tailwind gray-500 */
+}
+
+#paypal-amount {
+  color: #0b2340; /* deep navy text */
+  background-color: #ffffff; /* white background */
+}
+
+#paypal-amount::placeholder {
+  color: #6b7280; /* gray placeholder for visibility */
+  opacity: 1;
+}
+
+/* ========================= */
+/* Animations & Transitions */
+/* ========================= */
+
+/* Fade In Up */
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out forwards;
+}
+
+/* Fade In Down */
+@keyframes fade-in-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-in-down {
+  animation: fade-in-down 0.8s ease-out forwards;
+}
+
+/* Zoom In */
+@keyframes zoom-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.animate-zoom-in {
+  animation: zoom-in 0.6s ease-out forwards;
+}
+
+/* Slide In Left */
+@keyframes slide-in-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.animate-slide-in-left {
+  animation: slide-in-left 0.8s ease-out forwards;
+}
+
+/* Slide In Right */
+@keyframes slide-in-right {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.animate-slide-in-right {
+  animation: slide-in-right 0.8s ease-out forwards;
+}
+
+/* ========================= */
+/* Hover & Modern UI Effects */
+/* ========================= */
+
+/* Card Hover Effect */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Button Glow */
+.btn-glow {
+  transition: all 0.3s ease;
+  box-shadow: 0 0 0 rgba(212, 175, 55, 0.5);
+}
+.btn-glow:hover {
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.7);
+  transform: translateY(-2px) scale(1.05);
+}
+
+/* Fade-in on scroll (hidden by default) */
+.fade-section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.fade-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

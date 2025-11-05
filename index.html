@@ -1,0 +1,1771 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+<link rel="icon" href="assets/icon.png">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Kingdom Pentecostal Church</title>
+  <meta name="description"
+    content="Welcome to The Kingdom Pentecostal Church. Join us for worship, community, and growth in faith." />
+  <meta name="keywords" content="church, pentecostal, kingdom, worship, community, faith, jesus, god" />
+  <meta name="author" content="The Kingdom Pentecostal Church" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.yourchurchwebsite.com/" />
+  <meta property="og:title" content="The Kingdom Pentecostal Church" />
+  <meta property="og:description" content="Join us for worship, community, and growth in faith." />
+  <meta property="og:image" content="https://placehold.co/1200x630/0B2340/D4AF37?text=TKPC" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="style.css" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@400;600;700&display=swap"
+    rel="stylesheet" />
+
+  <style>
+    /* Base Styles */
+    body {
+      font-family: "Inter", sans-serif;
+      background: url("assets/temple.jpg") no-repeat center center/cover;
+      color: #0b2340;
+      scroll-behavior: smooth;
+    }
+
+    .font-display {
+      font-family: "Playfair Display", serif;
+    }
+
+    /* Brand Colors */
+    .bg-deep-navy {
+      background-color: #0b2340;
+    }
+
+    .text-gold-accent {
+      color: #d4af37;
+    }
+
+    .border-gold-accent {
+      border-color: #d4af37;
+    }
+
+    .bg-gold-accent {
+      background-color: #d4af37;
+    }
+
+    /* Gradient Backgrounds */
+    .gradient-hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.5),
+          /* top dark overlay */
+          rgba(0, 0, 0, 0.5)
+          /* bottom dark overlay */
+        ),
+        url("assets/temple.jpg") no-repeat center center/cover;
+    }
+
+    .gradient-card {
+      background: linear-gradient(145deg, #ffffff 0%, #f7fafc 100%);
+    }
+
+    /* Navigation Active Link */
+    .nav-link {
+      position: relative;
+      color: #0b2340;
+      /* deep navy */
+      transition: color 0.3s ease;
+      text-decoration: none;
+      /* remove default underline */
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      /* little space below text */
+      width: 0%;
+      height: 2px;
+      background-color: #d4af37;
+      /* gold accent */
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: #d4af37;
+      /* gold text on hover */
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+      /* animate underline */
+    }
+
+    /* Animations */
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @keyframes pulse-glow {
+
+      0%,
+      100% {
+        box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+      }
+
+      50% {
+        box-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
+      }
+    }
+
+    .float-animation {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .pulse-glow {
+      animation: pulse-glow 2s ease-in-out infinite;
+    }
+
+    /* Modern Card Styles */
+    .modern-card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .modern-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Glassmorphism Effect */
+    .glass-effect {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    /* Hero Particles Effect */
+    .particles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: rgba(212, 175, 55, 0.6);
+      border-radius: 50%;
+      animation: particles 15s linear infinite;
+    }
+
+    @keyframes particles {
+      0% {
+        transform: translateY(100vh) translateX(0px);
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 1;
+      }
+
+      90% {
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(-10vh) translateX(100px);
+        opacity: 0;
+      }
+    }
+
+    /* Payment Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(5px);
+    }
+
+    .modal.show {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      max-width: 500px;
+      width: 90%;
+      max-height: 90vh;
+      overflow-y: auto;
+      animation: modalSlideIn 0.3s ease-out;
+    }
+
+    @keyframes modalSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Form Styles */
+    .form-input {
+      transition: all 0.3s ease;
+      border: 2px solid #e2e8f0;
+    }
+
+    .form-input:focus {
+      border-color: #d4af37;
+      box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+      outline: none;
+    }
+
+    /* Success/Error Messages */
+    .alert {
+      padding: 1rem;
+      border-radius: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .alert-success {
+      background-color: #d1fae5;
+      color: #047857;
+      border: 1px solid #a7f3d0;
+    }
+
+    .alert-error {
+      background-color: #fee2e2;
+      color: #dc2626;
+      border: 1px solid #fca5a5;
+    }
+  </style>
+</head>
+
+<body class="antialiased">
+  <header id="main-header" class="bg-deep-navy text-white sticky top-0 z-40 transition-all duration-300 shadow-lg">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <a href="#home" class="flex items-center space-x-2">
+          <svg class="h-10 w-10 text-gold-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v11.494m-9-5.747h18" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M12 3l9 4.5v9L12 21l-9-4.5v-9L12 3z" />
+          </svg>
+          <span class="text-xl font-bold tracking-tight">
+            The Kingdom Pentecostal Church
+          </span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex space-x-8">
+          <a href="#home" class="nav-link text-gray-300 hover:text-gold-accent transition duration-150">Home</a>
+          <a href="#about" class="nav-link text-gray-300 hover:text-gold-accent transition duration-150">About</a>
+          <a href="#sermons" class="nav-link text-gray-300 hover:text-gold-accent transition duration-150">Sermons</a>
+          <a href="#connect" class="nav-link text-gray-300 hover:text-gold-accent transition duration-150">Connect</a>
+          <a href="#give" class="nav-link text-gray-300 hover:text-gold-accent transition duration-150">Give</a>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden">
+          <button id="mobile-menu-button" class="text-gray-300 hover:text-gold-accent focus:outline-none">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-deep-navy">
+      <nav class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="#home" class="block px-3 py-2 rounded-md text-gray-300 hover:text-white hover:bg-gray-700">Home</a>
+        <a href="#about" class="block px-3 py-2 rounded-md text-gray-300 hover:text-white hover:bg-gray-700">About</a>
+        <a href="#sermons"
+          class="block px-3 py-2 rounded-md text-gray-300 hover:text-white hover:bg-gray-700">Sermons</a>
+        <a href="#connect"
+          class="block px-3 py-2 rounded-md text-gray-300 hover:text-white hover:bg-gray-700">Connect</a>
+        <a href="#give" class="block px-3 py-2 rounded-md text-gray-300 hover:text-white hover:bg-gray-700">Give</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ✅ Add this small JS for mobile menu toggle -->
+  <script>
+    const menuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+
+  <main id="main-content">
+    <!-- Enhanced Hero Section -->
+    <section id="home"
+      class="page-section relative min-h-screen flex items-center justify-center text-white overflow-hidden gradient-hero">
+      <div class="particles">
+        <div class="particle" style="left: 10%; animation-delay: 0s"></div>
+        <div class="particle" style="left: 20%; animation-delay: 2s"></div>
+        <div class="particle" style="left: 30%; animation-delay: 4s"></div>
+        <div class="particle" style="left: 40%; animation-delay: 6s"></div>
+        <div class="particle" style="left: 50%; animation-delay: 8s"></div>
+        <div class="particle" style="left: 60%; animation-delay: 10s"></div>
+        <div class="particle" style="left: 70%; animation-delay: 12s"></div>
+        <div class="particle" style="left: 80%; animation-delay: 14s"></div>
+      </div>
+
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black opacity-30"></div>
+
+      <div class="relative z-10 text-center px-4 max-w-6xl mx-auto">
+        <div class="mb-8 float-animation">
+          <svg class="h-24 w-24 mx-auto text-gold-accent mb-6" fill="currentColor" viewBox="0 0 24 24"></svg>
+        </div>
+
+        <h1 class="font-display text-5xl md:text-7xl font-bold mb-6 leading-tight text-">
+          Welcome to
+          <span class="text-gold-accent">God's Kingdom</span>
+        </h1>
+
+        <p class="text-xl md:text-2xl mb-8 text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          A place where faith comes alive, community thrives, and hearts are
+          transformed by His love.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <button onclick="scrollToSection('connect')"
+            class="bg-gold-accent text-deep-navy font-bold py-4 px-8 rounded-full hover:bg-yellow-400 transition-all duration-300 transform hover:scale-105 pulse-glow">
+            Plan Your Visit
+          </button>
+          <button onclick="scrollToSection('sermons')"
+            class="glass-effect text-white font-bold py-4 px-8 rounded-full hover:bg-white/20 hover:text-gold-accent transition-all duration-300">
+            Watch Sermons
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Enhanced Vision Section -->
+    <section id="about" class="page-section py-20 bg-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="font-display text-4xl md:text-5xl font-bold mb-6 text-deep-navy">
+            Our Vision & Mission
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Transforming lives through the power of God's love, building a
+            community that reflects His kingdom on earth.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-16">
+          <div class="space-y-8">
+            <div class="modern-card p-8 rounded-2xl">
+              <div class="flex items-start space-x-4">
+                <div class="bg-gold-accent p-3 rounded-full">
+                  <svg class="h-8 w-8 text-deep-navy" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-2xl font-bold mb-3 text-deep-navy">
+                    Our Vision
+                  </h3>
+                  <p class="text-gray-600 leading-relaxed">
+                    To be a beacon of hope in our community, demonstrating
+                    Christ's love through authentic worship, compassionate
+                    service, and Spirit-filled ministry that transforms hearts
+                    and builds His kingdom.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="modern-card p-8 rounded-2xl">
+              <div class="flex items-start space-x-4">
+                <div class="bg-deep-navy p-3 rounded-full">
+                  <svg class="h-8 w-8 text-gold-accent" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zM4 18v-6h3v6h2v-6h3l1 4h3l1.8-7.2L17 9l1-4h-3L12 2 9 5H6l1 4 .2.8L9 18H4z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-2xl font-bold mb-3 text-deep-navy">
+                    Our Mission
+                  </h3>
+                  <p class="text-gray-600 leading-relaxed">
+                    We exist to make disciples of Jesus Christ by creating an
+                    environment where people can encounter God, grow in faith,
+                    and discover their purpose in His kingdom.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative">
+            <img src="assets/logo.png" alt="Church Community" class="rounded-2xl shadow-2xl w-full" />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-deep-navy via-transparent to-transparent rounded-2xl opacity-20">
+            </div>
+          </div>
+        </div>
+
+        <!-- Core Values -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="text-center modern-card p-8 rounded-2xl">
+            <div class="bg-gold-accent w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg class="h-8 w-8 text-deep-navy" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-deep-navy">Love</h3>
+            <p class="text-gray-600">
+              Showing Christ's unconditional love to everyone who walks
+              through our doors.
+            </p>
+          </div>
+
+          <div class="text-center modern-card p-8 rounded-2xl">
+            <div class="bg-deep-navy w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg class="h-8 w-8 text-gold-accent" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-deep-navy">Truth</h3>
+            <p class="text-gray-600">
+              Grounded in God's Word, we seek to live and share His truth with
+              integrity.
+            </p>
+          </div>
+
+          <div class="text-center modern-card p-8 rounded-2xl">
+            <div class="bg-gold-accent w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg class="h-8 w-8 text-deep-navy" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zM4 18v-6h3v6h2v-6h3l1 4h3l1.8-7.2L17 9l1-4h-3L12 2 9 5H6l1 4 .2.8L9 18H4z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-deep-navy">Unity</h3>
+            <p class="text-gray-600">
+              Building a diverse community united by faith, hope, and love in
+              Christ.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Enhanced Sermons Section -->
+    <section id="sermons" class="page-section py-20 bg-gray-50">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="font-display text-4xl md:text-5xl font-bold mb-6 text-deep-navy">
+            Latest Sermons
+          </h2>
+          <p class="text-xl text-gray-600">
+            Be inspired by God's Word through our recent messages
+          </p>
+        </div>
+
+        <div id="sermons-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Sermons will be dynamically loaded -->
+        </div>
+
+        <div class="text-center mt-12">
+          <button
+            class="bg-deep-navy text-white font-bold py-4 px-8 rounded-full hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105">
+            View All Sermons
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Enhanced Events Section -->
+    <!-- <section id="events" class="page-section py-20 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-16">
+            <h2
+              class="font-display text-4xl md:text-5xl font-bold mb-6 text-deep-navy"
+            >
+              Upcoming Events
+            </h2>
+            <p class="text-xl text-gray-600">
+              Join us for these special gatherings and celebrations
+            </p>
+          </div>
+
+          <div id="events-list" class="space-y-8 max-w-5xl mx-auto"> -->
+    <!-- Events will be dynamically loaded -->
+    <!-- </div>
+        </div>
+      </section> -->
+
+    <!-- Child Feeding Section - Add this after the Connect section and before Give section -->
+    <section id="feed-children" class="page-section py-20 bg-gradient-to-br from-blue-50 to-indigo-100 overflow-hidden">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 fade-section">
+          <div class="inline-flex items-center bg-white rounded-full px-6 py-2 shadow-lg mb-6">
+            <svg class="h-6 w-6 text-red-500 mr-2" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+            </svg>
+            <span class="text-deep-navy font-semibold">FEEDING THE HUNGRY</span>
+          </div>
+          <h2 class="font-display text-4xl md:text-5xl font-bold mb-6 text-deep-navy animate-fade-in-down">
+            Feed Hungry Children
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed animate-fade-in-up">
+            Join us in our mission to provide nutritious meals to children in
+            need across our community and beyond. Every meal makes a
+            difference in a child's life.
+          </p>
+        </div>
+
+        <!-- Stats Counter -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          <div class="text-center bg-white rounded-2xl p-6 shadow-lg card-hover animate-zoom-in">
+            <div class="text-3xl md:text-4xl font-bold text-gold-accent mb-2" id="meals-served">
+              0
+            </div>
+            <p class="text-gray-600 font-semibold">Meals Served</p>
+          </div>
+          <div class="text-center bg-white rounded-2xl p-6 shadow-lg card-hover animate-zoom-in"
+            style="animation-delay: 0.1s">
+            <div class="text-3xl md:text-4xl font-bold text-green-500 mb-2" id="children-fed">
+              0
+            </div>
+            <p class="text-gray-600 font-semibold">Children Fed</p>
+          </div>
+          <div class="text-center bg-white rounded-2xl p-6 shadow-lg card-hover animate-zoom-in"
+            style="animation-delay: 0.2s">
+            <div class="text-3xl md:text-4xl font-bold text-blue-500 mb-2" id="communities-reached">
+              0
+            </div>
+            <p class="text-gray-600 font-semibold">Communities</p>
+          </div>
+          <div class="text-center bg-white rounded-2xl p-6 shadow-lg card-hover animate-zoom-in"
+            style="animation-delay: 0.3s">
+            <div class="text-3xl md:text-4xl font-bold text-purple-500 mb-2" id="volunteers">
+              0
+            </div>
+            <p class="text-gray-600 font-semibold">Volunteers</p>
+          </div>
+        </div>
+
+        <!-- Children Images Grid -->
+        <div class="mb-16 fade-section">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="relative overflow-hidden rounded-2xl group">
+              <img src="assets/Bible (1).png" alt="Child receiving meal"
+                class="w-full h-48 md:h-64 object-cover group-hover:scale-110 transition-transform duration-500" />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              </div>
+              <div
+                class="absolute bottom-4 left-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <p class="text-sm font-semibold">Free Bible Distribution
+</p>
+              </div>
+            </div>
+            <div class="relative overflow-hidden rounded-2xl group">
+              <img src="assets/istockphoto-941788480-612x612.jpg" alt="Child with food package"
+                class="w-full h-48 md:h-64 object-cover group-hover:scale-110 transition-transform duration-500" />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              </div>
+              <div
+                class="absolute bottom-4 left-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <p class="text-sm font-semibold">jawad, age 5</p>
+              </div>
+            </div>
+            <div class="relative overflow-hidden rounded-2xl group">
+              <img
+                src="assets/Bible (2).png"
+                alt="Children eating together"
+                class="w-full h-48 md:h-64 object-cover group-hover:scale-110 transition-transform duration-500" />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              </div>
+              <div
+                class="absolute bottom-4 left-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <p class="text-sm font-semibold">Free Water Pump</p>
+              </div>
+            </div>
+            <div class="relative overflow-hidden rounded-2xl group">
+              <img src="assets/BOX-OF-JOY-CHILDREN_800.jpg" alt="Happy child with meal"
+                class="w-full h-48 md:h-64 object-cover group-hover:scale-110 transition-transform duration-500" />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              </div>
+              <div
+                class="absolute bottom-4 left-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <p class="text-sm font-semibold">Sherra, Age 5</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feeding Packages -->
+        <div class="mb-16">
+          <h3 class="text-3xl font-bold text-center mb-12 text-deep-navy fade-section">
+            Choose Your Impact
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Basic Package -->
+            <div
+              class="bg-white rounded-2xl p-8 shadow-xl card-hover text-center animate-slide-in-left border-t-4 border-green-500">
+              <div class="bg-green-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg class="h-10 w-10 text-green-600" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                </svg>
+              </div>
+              <h4 class="text-2xl font-bold mb-4 text-deep-navy">
+                Basic Meal
+              </h4>
+              <p class="text-4xl font-bold text-green-600 mb-4">$5</p>
+              <p class="text-gray-600 mb-6">
+                Provides 3 healthy meals per person </p>
+              <ul class="text-left text-sm text-gray-600 mb-6 space-y-2">
+                <li class="flex items-center">
+                  <svg class="h-4 w-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                  </svg>
+                  Rice & beans
+                </li>
+                <li class="flex items-center">
+                  <svg class="h-4 w-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                  </svg>
+                  Fresh vegetables
+                </li>
+                <li class="flex items-center">
+                  <svg class="h-4 w-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                  </svg>
+                  Clean water
+                </li>
+              </ul>
+              <button onclick="sponsorChild('basic', 5)"
+                class="w-full bg-green-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-600 transition-all duration-300 btn-glow">
+                Feed a Child
+              </button>
+            </div>
+
+            <!-- Family Package -->
+            <div
+              class="bg-white rounded-2xl p-8 shadow-xl card-hover text-center animate-slide-in-left border-t-4 border-gold-accent transform scale-105"
+              style="animation-delay: 0.1s">
+              <div class="bg-yellow-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 relative">
+                <svg class="h-10 w-10 text-gold-accent" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zM4 18v-6h3v6h2v-6h3l1 4h3l1.8-7.2L17 9l1-4h-3L12 2 9 5H6l1 4 .2.8L9 18H4z" />
+                </svg>
+                <span
+                  class="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">Popular</span>
+              </div>
+              <h4 class="text-2xl font-bold mb-4 text-deep-navy">
+                Family Package
+              </h4>
+              <p class="text-4xl font-bold text-gold-accent mb-4">$25</p>
+              <p class="text-gray-600 mb-6">
+                Feeds a family of 5 for one week
+              </p>
+              <ul class="text-left text-sm text-gray-600 mb-6 space-y-2">
+                <li class="flex items-center">
+                  <svg class="h-4 w-4 text-gold-accent mr-2" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                  </svg>
+                  Complete meal packages
+                </li>
+                <li class="flex items-center">
+                  <svg class="h-4 w-4 text-gold-accent mr-2" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                  </svg>
+                  Protein & vitamins
+                </li>
+                <li class="flex items-center">
+                  <svg class="h-4 w-4 text-gold-accent mr-2" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                  </svg>
+                  Educational materials
+                </li>
+              </ul>
+              <button onclick="sponsorChild('family', 25)"
+                class="w-full bg-gold-accent text-deep-navy font-bold py-3 px-6 rounded-lg hover:bg-yellow-400 transition-all duration-300 btn-glow">
+                Feed a Family
+              </button>
+            </div>
+
+            <!-- Community Package -->
+            <div
+              class="bg-white rounded-2xl p-8 shadow-xl card-hover text-center animate-slide-in-left border-t-4 border-purple-500"
+              style="animation-delay: 0.2s">
+              <div class="bg-purple-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg class="h-10 w-10 text-purple-600" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                </svg>
+              </div>
+              <h4 class="text-2xl font-bold mb-4 text-deep-navy">
+                Community Impact
+              </h4>
+              <p class="text-4xl font-bold text-purple-600 mb-4">$100</p>
+              <p class="text-gray-600 mb-6">Feeds 50 children for one day</p>
+              <ul class="text-left text-sm text-gray-600 mb-6 space-y-2">
+                <li class="flex items-center">
+                  <svg class="h-4 w-4 text-purple-500 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                  </svg>
+                  Mass meal preparation
+                </li>
+                <li class="flex items-center">
+                  <svg class="h-4 w-4 text-purple-500 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                  </svg>
+                  Health supplements
+                </li>
+                <li class="flex items-center">
+                  <svg class="h-4 w-4 text-purple-500 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                  </svg>
+                  Community support
+                </li>
+              </ul>
+              <button onclick="sponsorChild('community', 100)"
+                class="w-full bg-purple-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-purple-700 transition-all duration-300 btn-glow">
+                Feed a Community
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="text-center bg-white rounded-3xl p-12 shadow-2xl fade-section">
+          <h3 class="text-3xl font-bold mb-6 text-deep-navy">
+            Every Child Deserves a Meal
+          </h3>
+          <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+            Your generosity can transform a child's life. Together, we can end
+            childhood hunger and provide hope for a brighter future.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <button onclick="scrollToSection('give')"
+              class="bg-gold-accent text-deep-navy font-bold py-4 px-8 rounded-full hover:bg-yellow-400 transition-all duration-300 btn-glow">
+              Donate Now
+            </button>
+            <button onclick="openVolunteerModal()"
+              class="bg-deep-navy text-white font-bold py-4 px-8 rounded-full hover:bg-opacity-90 transition-all duration-300">
+              Volunteer With Us
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Enhanced Connect Section -->
+    <section id="connect" class="page-section py-20 bg-gradient-to-br from-gray-50 to-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="font-display text-4xl md:text-5xl font-bold mb-6 text-deep-navy">
+            Get Connected
+          </h2>
+          <p class="text-xl text-gray-600">
+            Find your place in our church family
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <div class="modern-card p-8 rounded-2xl text-center group">
+            <div
+              class="bg-gradient-to-br from-gold-accent to-yellow-500 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 transform group-hover:scale-110 transition-transform duration-300">
+              <svg class="h-10 w-10 text-deep-navy" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zM4 18v-6h3v6h2v-6h3l1 4h3l1.8-7.2L17 9l1-4h-3L12 2 9 5H6l1 4 .2.8L9 18H4z" />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-deep-navy">
+              Small Groups
+            </h3>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              Experience genuine community and spiritual growth in our welcoming groups.
+            </p>
+            <button
+              class="bg-deep-navy text-white font-semibold py-3 px-6 rounded-full hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105">
+              Find Your Group
+            </button>
+          </div>
+
+          <div class="modern-card p-8 rounded-2xl text-center group">
+            <div
+              class="bg-gradient-to-br from-deep-navy to-gray-700 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 transform group-hover:scale-110 transition-transform duration-300">
+              <svg class="h-10 w-10 text-gold-accent" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-deep-navy">Volunteer</h3>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              Use your God-given gifts to serve others and make a difference
+              in our community.
+            </p>
+            <button
+              class="bg-gold-accent text-deep-navy font-semibold py-3 px-6 rounded-full hover:bg-yellow-400 transition-all duration-300 transform hover:scale-105">
+              Get Involved
+            </button>
+          </div>
+
+          <div class="modern-card p-8 rounded-2xl text-center group">
+            <div
+              class="bg-gradient-to-br from-green-500 to-emerald-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 transform group-hover:scale-110 transition-transform duration-300">
+              <svg class="h-10 w-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-deep-navy">Membership</h3>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              Take the next step in your faith journey by becoming a member of
+              our church family.
+            </p>
+            <button
+              class="bg-emerald-600 text-white font-semibold py-3 px-6 rounded-full hover:bg-emerald-700 transition-all duration-300 transform hover:scale-105">
+              Join Our Family
+            </button>
+          </div>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="modern-card p-8 rounded-2xl max-w-4xl mx-auto">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div>
+              <h3 class="text-2xl font-bold mb-4 text-deep-navy">
+                Visit Us
+              </h3>
+              <div class="space-y-4">
+                <div class="flex items-center space-x-3">
+                  <svg class="h-6 w-6 text-gold-accent" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                  </svg>
+                  <span class="text-gray-600">Essa nagari Street number 4 Gulshan e Iqbal Karachi Pakistan</span>
+                </div>
+                <!-- <div class="flex items-center space-x-3">
+                    <svg
+                      class="h-6 w-6 text-gold-accent"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                      />
+                    </svg>
+                    <span class="text-gray-600">Sunday Service: 10:00 AM</span>
+                  </div> -->
+                <div class="flex items-center space-x-3">
+                  <svg class="h-6 w-6 text-gold-accent" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                  </svg>
+                  <span class="text-gray-600">03448043117 | 03222125340</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <svg class="h-6 w-6 text-gold-accent" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                  </svg>
+                  <span class="text-gray-600">pskhurramkk@gmail.com</span>
+                </div>
+              </div>
+            </div>
+            <div class="text-center md:text-right">
+              <button onclick="openContactModal()"
+                class="bg-gold-accent text-deep-navy font-bold py-4 px-8 rounded-full hover:bg-yellow-400 transition-all duration-300 transform hover:scale-105 pulse-glow">
+                Contact Us Today
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Enhanced Give Section -->
+    <section id="give" class="page-section py-20 bg-deep-navy text-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="mb-16">
+          <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
+            Give Generously
+          </h2>
+          <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Your faithful giving enables us to spread God's love, support our
+            community, and advance His kingdom. Every gift makes a difference.
+          </p>
+        </div>
+
+        <div class="max-w-md mx-auto modern-card bg-white text-deep-navy p-8 rounded-2xl shadow-2xl">
+          <!-- Payment Method Tabs -->
+          <div class="flex border-b border-gray-200 mb-6">
+            <button data-payment="card"
+              class="payment-tab active-tab flex-1 py-3 font-semibold text-deep-navy border-b-2 border-gold-accent">
+              Card
+            </button>
+            <button data-payment="bank"
+              class="payment-tab flex-1 py-3 font-semibold text-gray-500 border-b-2 border-transparent">
+              Bank
+            </button>
+            <button data-payment="paypal"
+              class="payment-tab flex-1 py-3 font-semibold text-gray-500 border-b-2 border-transparent">
+              PayPal
+            </button>
+            <button data-payment="btc"
+              class="payment-tab flex-1 py-3 font-semibold text-gray-500 border-b-2 border-transparent">
+              BTC
+            </button>
+          </div>
+          <div id="payment-content">
+            <div id="card-payment" class="payment-method">
+              <form id="donation-form">
+                <div class="mb-6 text-center">
+                  <p class="text-gray-600">You are giving:</p>
+                  <p id="display-amount" class="text-4xl font-bold text-deep-navy">$0</p>
+                </div>
+                <input type="number" id="custom-amount" placeholder="Enter Amount"
+                  class="form-input w-full px-4 py-3 border rounded-lg mb-4 text-center text-lg bg-white text-deep-navy" />
+                <button type="submit"
+                  class="w-full bg-gold-accent text-deep-navy font-bold py-3 px-8 rounded-lg hover:bg-yellow-400 transition-all duration-300 transform hover:scale-105">
+                  Secure Donation
+                </button>
+              </form>
+            </div>
+
+            <div id="bank-payment" class="payment-method hidden text-left">
+              <p class="text-gray-600 mb-4">
+                Transfer directly to our bank account using these details:
+              </p>
+
+              <div class="bg-gray-100 p-4 rounded-lg space-y-3">
+                <div>
+                  <p class="text-sm font-semibold text-gray-500">Bank Name</p>
+                  <p class="font-semibold text-black">Allied Bank Limited</p>
+                </div>
+                <div>
+                  <p class="text-sm font-semibold text-gray-500">Account Title</p>
+                  <p class="font-semibold text-black">THE KINGDOM PENTECOSTAL CHURCH</p>
+                </div>
+                <div>
+                  <p class="text-sm font-semibold text-gray-500">IBAN</p>
+                  <p class="font-semibold break-all text-sm text-black">PK16ABPA0010054395290041</p>
+                </div>
+              </div>
+
+              <div class="bg-gray-100 p-4 rounded-lg space-y-3 mt-4">
+                <div>
+                  <p class="text-sm font-semibold text-gray-500">Bank Name</p>
+                  <p class="font-semibold text-black">United Bank Limited</p>
+                </div>
+                <div>
+                  <p class="text-sm font-semibold text-gray-500">Account Title</p>
+                  <p class="font-semibold text-black">GS TELEVISION TRUST</p>
+                </div>
+                <div>
+                  <p class="text-sm font-semibold text-gray-500">IBAN</p>
+                  <p class="font-semibold break-all text-sm text-black">PK94 UNIL 0109 0003 3424 2279</p>
+                </div>
+              </div>
+
+              <div class="mt-6">
+                <label for="receipt-upload" class="block text-sm font-semibold text-gray-700 mb-2">
+                  Upload Receipt Screenshot
+                </label>
+                <input type="file" id="receipt-upload" accept="image/*"
+                  class="form-input block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-gold-accent file:text-deep-navy hover:file:bg-yellow-400" />
+                <button type="button" id="upload-receipt-btn"
+                  class="mt-4 w-full bg-deep-navy text-white font-bold py-3 px-8 rounded-lg hover:bg-opacity-90 transition duration-300">
+                  Upload Receipt
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- PayPal Content -->
+          <div id="paypal-payment" class="payment-method hidden text-center">
+            <p class="text-gray-600 mb-4">
+              Complete your donation securely with PayPal.
+            </p>
+
+            <input type="number" id="paypal-amount" placeholder="Enter Amount"
+              class="form-input w-full px-4 py-3 border rounded-lg mb-4 text-center text-lg bg-white text-deep-navy" />
+
+            <button onclick="processPayPalDonation()"
+              class="bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition">
+              Continue with PayPal
+            </button>
+
+            <div id="paypal-button-container" class="mt-4"></div>
+          </div>
+
+          <!-- BTC Content -->
+          <div id="btc-payment" class="payment-method hidden text-center">
+            <p class="text-gray-600 mb-4">
+              Scan QR code or copy the Bitcoin address below.
+            </p>
+            <div class="flex justify-center mb-4">
+              <img src="https://placehold.co/150x150/ffffff/000000?text=BTC+QR" alt="Bitcoin QR Code"
+                class="rounded-lg border" />
+            </div>
+            <div class="bg-gray-100 p-3 rounded-lg break-all">
+              <span class="font-mono text-sm text-black">bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh</span>
+            </div>
+            <button onclick="copyBTCAddress()"
+              class="mt-4 bg-orange-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-orange-600 transition duration-300">
+              Copy Address
+            </button>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-deep-navy text-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-center md:text-left animate-fade-in-up">
+        <!-- Church Info -->
+        <div class="space-y-4">
+          <div class="flex items-center justify-center md:justify-start mb-4">
+            <svg class="h-12 w-12 text-gold-accent float-animation" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v11.494m-9-5.747h18" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 3l9 4.5v9L12 21l-9-4.5v-9L12 3z" />
+            </svg>
+            <span class="text-2xl font-bold ml-3 text-white">TKPC</span>
+          </div>
+          <p class="text-gray-400 leading-relaxed">
+            The Kingdom Pentecostal Church is a place of worship, community,
+            and growth in faith. We invite you to join our family.
+          </p>
+          <p class="text-gray-400 flex items-center justify-center md:justify-start space-x-2">
+            <svg class="h-5 w-5 text-gold-accent" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+            </svg>
+            <span>Essa nagari Street number 4 Gulshan e Iqbal Karachi Pakistan</span>
+          </p>
+        </div>
+
+        <!-- Service Times -->
+        <div class="space-y-4">
+          <h4 class="text-2xl font-bold mb-4 text-gold-accent">
+            Service Times
+          </h4>
+          <ul class="space-y-2 text-gray-400">
+            <li class="hover:text-white transition-colors duration-300">
+              <p><strong>Sunday Worship:</strong> 10:00 AM</p>
+              <p class="text-sm">In-person & Online</p>
+            </li>
+            <li class="hover:text-white transition-colors duration-300">
+              <p><strong>Wednesday Bible Study:</strong> 7:00 PM</p>
+              <p class="text-sm">Via Zoom</p>
+            </li>
+            <li class="hover:text-white transition-colors duration-300">
+              <p><strong>Youth Group:</strong> Friday, 6:00 PM</p>
+              <p class="text-sm">Youth Hall</p>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="space-y-4">
+          <h4 class="text-2xl font-bold mb-4 text-gold-accent">
+            Quick Links
+          </h4>
+          <ul class="space-y-2">
+            <li>
+              <a href="#about" class="text-gray-400 hover:text-white hover:underline transition-all duration-300">About
+                Us</a>
+            </li>
+            <li>
+              <a href="#sermons"
+                class="text-gray-400 hover:text-white hover:underline transition-all duration-300">Sermons</a>
+            </li>
+            <li>
+              <a href="#give"
+                class="text-gray-400 hover:text-white hover:underline transition-all duration-300">Give</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Connect & Socials -->
+        <div class="space-y-4">
+          <h4 class="text-2xl font-bold mb-4 text-gold-accent">
+            Connect With Us
+          </h4>
+          <div class="flex justify-center md:justify-start space-x-4 mb-6">
+            <a href="#"
+              class="text-gray-400 hover:text-gold-accent transform hover:scale-125 transition-transform duration-300"
+              aria-label="Facebook">
+              <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v2.385z" />
+              </svg>
+            </a>
+            <a href="#"
+              class="text-gray-400 hover:text-gold-accent transform hover:scale-125 transition-transform duration-300"
+              aria-label="Instagram">
+              <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664-4.771 4.919-4.919 1.266.058 1.644.07 4.85.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.059-1.281.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.281-.058-1.689-.072-4.948-.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44 1.441-.645 1.441-1.44-.645-1.44-1.441-1.44z" />
+              </svg>
+            </a>
+            <a href="#"
+              class="text-gray-400 hover:text-gold-accent transform hover:scale-125 transition-transform duration-300"
+              aria-label="YouTube">
+              <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
+              </svg>
+            </a>
+          </div>
+          <p class="text-sm text-gray-400">
+            Subscribe to our newsletter for updates!
+          </p>
+          <form class="flex mt-4">
+            <input type="email" placeholder="Your Email Address"
+              class="form-input flex-1 px-4 py-3 rounded-l-full bg-gray-800 text-white border border-gray-700 focus:border-gold-accent outline-none" />
+            <button type="submit"
+              class="bg-gold-accent text-deep-navy font-bold px-6 py-3 rounded-r-full hover:bg-yellow-400 transition-colors duration-300">
+              Join
+            </button>
+          </form>
+        </div>
+      </div>
+      <div class="mt-16 border-t border-gray-700 pt-8 text-center text-gray-500">
+        <p>
+          &copy; <span id="current-year-footer">2024</span> The Kingdom
+          Pentecostal Church. All Rights Reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <style>
+    /* Additional Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fade-in-up {
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    /* Base Styles (already defined) */
+    body {
+      font-family: "Inter", sans-serif;
+      background: url("assets/temple.jpg") no-repeat center center/cover;
+      color: #0b2340;
+      scroll-behavior: smooth;
+    }
+
+    .font-display {
+      font-family: "Playfair Display", serif;
+    }
+
+    /* Brand Colors (already defined) */
+    .bg-deep-navy {
+      background-color: #0b2340;
+    }
+
+    .text-gold-accent {
+      color: #d4af37;
+    }
+
+    .border-gold-accent {
+      border-color: #d4af37;
+    }
+
+    .bg-gold-accent {
+      background-color: #d4af37;
+    }
+
+    /* Animation from original code */
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-5px);
+      }
+    }
+
+    .float-animation {
+      animation: float 2.5s ease-in-out infinite;
+    }
+  </style>
+
+  <!-- Payment Authentication Modal -->
+  <div id="payment-modal" class="modal">
+    <div class="modal-content">
+      <div class="flex justify-between items-center mb-6">
+        <h3 class="text-2xl font-bold text-deep-navy">
+          Secure Payment Authentication
+        </h3>
+        <button onclick="closePaymentModal()" class="text-gray-500 hover:text-gray-700">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <div id="payment-step-1" class="payment-step">
+        <div class="text-center mb-6">
+          <div class="bg-gold-accent w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="h-8 w-8 text-deep-navy" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" />
+            </svg>
+          </div>
+          <h4 class="text-xl font-bold mb-2">Payment Details</h4>
+          <p class="text-gray-600">
+            Amount: $<span id="payment-amount">0</span>
+          </p>
+        </div>
+
+        <form id="payment-auth-form">
+          <div class="space-y-4">
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-2">Card Number</label>
+              <input type="text" id="card-number" placeholder="1234 5678 9012 3456"
+                class="form-input w-full px-4 py-3 border rounded-lg" maxlength="19" />
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2">Expiry Date</label>
+                <input type="text" id="expiry-date" placeholder="MM/YY"
+                  class="form-input w-full px-4 py-3 border rounded-lg" maxlength="5" />
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2">CVV</label>
+                <input type="text" id="cvv" placeholder="123" class="form-input w-full px-4 py-3 border rounded-lg"
+                  maxlength="4" />
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-2">Cardholder Name</label>
+              <input type="text" id="cardholder-name" placeholder="John Doe"
+                class="form-input w-full px-4 py-3 border rounded-lg" />
+            </div>
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-2">Email</label>
+              <input type="email" id="donor-email" placeholder="john@example.com"
+                class="form-input w-full px-4 py-3 border rounded-lg" />
+            </div>
+          </div>
+
+          <button type="submit"
+            class="w-full mt-6 bg-gold-accent text-deep-navy font-bold py-4 px-8 rounded-lg hover:bg-yellow-400 transition-all duration-300 transform hover:scale-105">
+            Process Payment
+          </button>
+        </form>
+      </div>
+
+      <div id="payment-step-2" class="payment-step hidden">
+        <div class="text-center">
+          <div class="bg-green-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="h-8 w-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+            </svg>
+          </div>
+          <h4 class="text-xl font-bold mb-2 text-green-600">
+            Payment Successful!
+          </h4>
+          <p class="text-gray-600 mb-4">
+            Thank you for your generous donation of $<span id="success-amount">0</span>
+          </p>
+          <p class="text-sm text-gray-500">
+            A receipt has been sent to your email address.
+          </p>
+          <button onclick="closePaymentModal()"
+            class="mt-4 bg-deep-navy text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-90 transition duration-300">
+            Close
+          </button>
+        </div>
+      </div>
+
+      <div id="payment-error" class="hidden">
+        <div class="alert alert-error">
+          <strong>Payment Failed:</strong>
+          <span id="error-message">Please check your payment details and try again.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Modal -->
+  <div id="contact-modal" class="modal">
+    <div class="modal-content">
+      <div class="flex justify-between items-center mb-6">
+        <h3 class="text-2xl font-bold text-deep-navy">Contact Us</h3>
+        <button onclick="closeContactModal()" class="text-gray-500 hover:text-gray-700">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <form id="contact-form">
+        <div class="space-y-4">
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2">Name</label>
+            <input type="text" id="contact-name" class="form-input w-full px-4 py-3 border rounded-lg" required />
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2">Email</label>
+            <input type="email" id="contact-email" class="form-input w-full px-4 py-3 border rounded-lg" required />
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2">Message</label>
+            <textarea id="contact-message" rows="4" class="form-input w-full px-4 py-3 border rounded-lg"
+              required></textarea>
+          </div>
+        </div>
+
+        <button type="submit"
+          class="w-full mt-6 bg-gold-accent text-deep-navy font-bold py-3 px-8 rounded-lg hover:bg-yellow-400 transition-all duration-300">
+          Send Message
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Update the current year in the footer
+      const currentYearFooterElement = document.getElementById(
+        "current-year-footer"
+      );
+      if (currentYearFooterElement) {
+        currentYearFooterElement.textContent = new Date().getFullYear();
+      }
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+      // Mock Data with enhanced content
+      const sermons = [
+        {
+          id: 1,
+          title: "The Power of Forgiveness",
+          speaker: "",
+          date: "2024-08-25",
+          series: "Heart Matters",
+          image: "assets/sermon-1.jpg",
+          description:
+            "Discover how God's forgiveness transforms our hearts and relationships.",
+          duration: "35 min",
+          views: "1,234",
+        },
+        {
+          id: 2,
+          title: "Free Bible Distribution",
+          speaker: "Pastor Khurram KK",
+          date: "2024-08-11",
+          series: "Heart Matters",
+          image: "assets/Bible (1).png",
+          description:
+            "Receive a free Bible to strengthen your spirit.",
+          duration: "38 min",
+          views: "3,891",
+        },
+        {
+          id: 3,
+          title: "The Kingdom Pentecostal Church",
+          speaker: "Pastor Khurram KK | Pastor Shakeel Akhtar | Pastor Faisal bhatti | Pastor John | Pastor Wasim but",
+          date: "2024-08-18",
+          series: "Foundations",
+          image: "assets/sermon-4.jpg",
+          description:
+            "Understanding God's unique calling and purpose for your life.",
+          duration: "42 min",
+          views: "2,567",
+        },
+        {
+          id: 4,
+          title: "Faith Over Fear",
+          speaker: "Pastor Khurram KK",
+          date: "2024-08-11",
+          series: "Heart Matters",
+          image: "assets/sermon-3.jpg",
+          description:
+            "How to overcome fear and anxiety through unwavering faith.",
+          duration: "38 min",
+          views: "3,891",
+        },
+        {
+          id: 5,
+          title: "Free water Pump Distribution",
+          speaker: "Pastor Khurram KK",
+          date: "2024-08-11",
+          series: "Heart Matters",
+          image: "assets/Bible (2).png",
+          description:
+            "Receive a free Bible to strengthen your spirit.",
+          duration: "38 min",
+          views: "3,891",
+        },
+        // {
+        //   id: 6,
+        //   title: "Free Bible Distribution",
+        //   speaker: "Pastor Khurram KK",
+        //   date: "2024-08-11",
+        //   series: "Heart Matters",
+        //   image: "assets/sermon-5.jpg",
+        //   description:
+        //     "Receive a free Bible to strengthen your spirit.",
+        //   duration: "38 min",
+        //   views: "3,891",
+        // },
+      ];
+
+      // const events = [
+      //   {
+      //     id: 1,
+      //     title: "Community BBQ & Fellowship",
+      //     date: "2024-09-07",
+      //     time: "12:00 PM - 3:00 PM",
+      //     location: "Church Lawn",
+      //     description:
+      //       "Join us for delicious food, fun games, live music, and meaningful fellowship with our church family.",
+      //     image: "https://placehold.co/400x200/0B2340/D4AF37?text=BBQ",
+      //     category: "Community",
+      //   },
+      //   {
+      //     id: 2,
+      //     title: "Youth Night Explosion",
+      //     date: "2024-09-13",
+      //     time: "7:00 PM - 9:00 PM",
+      //     location: "Youth Hall",
+      //     description:
+      //       "An energetic night of worship, interactive games, pizza, and a powerful message designed specifically for our youth.",
+      //     image: "https://placehold.co/400x200/0B2340/D4AF37?text=Youth",
+      //     category: "Youth",
+      //   },
+      //   {
+      //     id: 3,
+      //     title: "Women's Empowerment Conference",
+      //     date: "2024-09-21",
+      //     time: "9:00 AM - 4:00 PM",
+      //     location: "Main Sanctuary",
+      //     description:
+      //       "A transformative day for women featuring inspiring speakers, worship, workshops, and networking opportunities.",
+      //     image: "https://placehold.co/400x200/0B2340/D4AF37?text=Women",
+      //     category: "Conference",
+      //   },
+      // ];
+
+      // Enhanced sermon cards with clickable images
+      const sermonsGrid = document.getElementById("sermons-grid");
+      if (sermonsGrid) {
+        sermons.forEach((sermon) => {
+          const sermonCard = `
+              <div class="modern-card rounded-2xl overflow-hidden group cursor-pointer" onclick="openSermonModal(${sermon.id
+            })">
+                <div class="relative overflow-hidden">
+                  <img src="${sermon.image}" alt="${sermon.title
+            }" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"/>
+                  <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
+                  <div class="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p class="text-sm font-semibold">${sermon.duration} • ${sermon.views
+            } views</p>
+                  </div>
+                  <div class="absolute top-4 right-4">
+                    <span class="bg-gold-accent text-deep-navy px-2 py-1 rounded-full text-xs font-bold">${sermon.series
+            }</span>
+                  </div>
+                </div>
+                <div class="p-6">
+                  <h3 class="text-xl font-bold mb-2 group-hover:text-gold-accent transition-colors duration-300">${sermon.title
+            }</h3>
+                  <p class="text-gray-600 mb-2">${sermon.speaker}</p>
+                  <p class="text-gray-500 text-sm mb-3">${new Date(
+              sermon.date
+            ).toLocaleDateString()}</p>
+                  <p class="text-gray-600 text-sm leading-relaxed">${sermon.description
+            }</p>
+                </div>
+              </div>
+            `;
+          sermonsGrid.innerHTML += sermonCard;
+        });
+      }
+
+      // Enhanced event cards
+      const eventsList = document.getElementById("events-list");
+      if (eventsList) {
+        events.forEach((event) => {
+          const eventItem = `
+              <div class="modern-card rounded-2xl overflow-hidden group hover:shadow-2xl transition-all duration-300">
+                <div class="flex flex-col lg:flex-row">
+                  <div class="lg:w-1/3 relative overflow-hidden">
+                    <img src="${event.image}" alt="${event.title
+            }" class="w-full h-48 lg:h-full object-cover group-hover:scale-105 transition-transform duration-300"/>
+                    <div class="absolute top-4 left-4">
+                      <span class="bg-gold-accent text-deep-navy px-3 py-1 rounded-full text-sm font-bold">${event.category
+            }</span>
+                    </div>
+                  </div>
+                  <div class="lg:w-2/3 p-8 flex flex-col justify-between">
+                    <div>
+                      <div class="flex items-center mb-4">
+                        <div class="bg-deep-navy text-gold-accent rounded-lg p-3 mr-4 text-center min-w-[70px]">
+                          <div class="text-lg font-bold">${new Date(
+              event.date
+            ).toLocaleDateString("en-US", {
+              month: "short",
+            })}</div>
+                          <div class="text-2xl font-bold">${new Date(
+              event.date
+            ).getDate()}</div>
+                        </div>
+                        <div>
+                          <h3 class="text-2xl font-bold mb-2 text-deep-navy group-hover:text-gold-accent transition-colors duration-300">${event.title
+            }</h3>
+                          <div class="flex items-center text-gray-600 mb-2">
+                            <svg class="h-5 w-5 mr-2 text-gold-accent" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.5 6L12 10.5 8.5 8 12 6.5 15.5 8zM12 17.5L8.5 16 12 13.5l3.5 2.5L12 17.5z"/>
+                            </svg>
+                            <span>${event.time}</span>
+                          </div>
+                          <div class="flex items-center text-gray-600">
+                            <svg class="h-5 w-5 mr-2 text-gold-accent" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                            </svg>
+                            <span>${event.location}</span>
+                          </div>
+                        </div>
+                      </div>
+                      <p class="text-gray-600 leading-relaxed mb-6">${event.description
+            }</p>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-3">
+                      <button onclick="registerForEvent(${event.id
+            })" class="bg-gold-accent text-deep-navy font-bold py-3 px-6 rounded-lg hover:bg-yellow-400 transition-all duration-300 transform hover:scale-105">
+                        Register Now
+                      </button>
+                      <button onclick="shareEvent(${event.id
+            })" class="bg-deep-navy text-white font-bold py-3 px-6 rounded-lg hover:bg-opacity-90 transition-all duration-300">
+                        Share Event
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            `;
+          eventsList.innerHTML += eventItem;
+        });
+      }
+
+      // Mobile menu functionality
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+      if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener("click", () => {
+          mobileMenu.classList.toggle("hidden");
+        });
+      }
+
+      // Smooth scrolling for navigation links
+      const navLinks = document.querySelectorAll('a[href^="#"]');
+      navLinks.forEach((link) => {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute("href");
+          const targetSection = document.querySelector(targetId);
+          if (targetSection) {
+            window.scrollTo({
+              top:
+                targetSection.offsetTop -
+                document.getElementById("main-header").offsetHeight,
+              behavior: "smooth",
+            });
+            if (!mobileMenu.classList.contains("hidden")) {
+              mobileMenu.classList.add("hidden");
+            }
+          }
+        });
+      });
+
+      // Contact form
+      const contactForm = document.getElementById("contact-form");
+      if (contactForm) {
+        contactForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const name = document.getElementById("contact-name").value;
+          const email = document.getElementById("contact-email").value;
+          const message = document.getElementById("contact-message").value;
+
+          if (name && email && message) {
+            showAlert(
+              "Thank you for your message! We will get back to you soon.",
+              "success"
+            );
+            contactForm.reset();
+            closeContactModal();
+          }
+        });
+      }
+
+      // Footer current year
+      const currentYearElement = document.getElementById("current-year");
+      if (currentYearElement) {
+        currentYearElement.textContent = new Date().getFullYear();
+      }
+    });
+
+    // Global functions for modal and payment handling
+    function scrollToSection(sectionId) {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        window.scrollTo({
+          top:
+            section.offsetTop -
+            document.getElementById("main-header").offsetHeight,
+          behavior: "smooth",
+        });
+      }
+    }
+
+    function openContactModal() {
+      const modal = document.getElementById("contact-modal");
+      if (modal) {
+        modal.classList.add("show");
+        document.body.style.overflow = "hidden";
+      }
+    }
+
+    function closeContactModal() {
+      const modal = document.getElementById("contact-modal");
+      if (modal) {
+        modal.classList.remove("show");
+        document.body.style.overflow = "auto";
+      }
+    }
+
+    function openSermonModal(sermonId) {
+      showAlert(
+        "Sermon player would open here with sermon ID: " + sermonId,
+        "success"
+      );
+    }
+
+    function registerForEvent(eventId) {
+      showAlert(
+        "Event registration would open here for event ID: " + eventId,
+        "success"
+      );
+    }
+
+    function shareEvent(eventId) {
+      if (navigator.share) {
+        navigator.share({
+          title: "Church Event",
+          text: "Join us for this amazing event!",
+          url: window.location.href,
+        });
+      } else {
+        showAlert(
+          "Event sharing functionality would be implemented here.",
+          "success"
+        );
+      }
+    }
+
+    function showAlert(message, type) {
+      // Create alert element
+      const alert = document.createElement("div");
+      alert.className = `alert alert-${type} fixed top-4 right-4 z-50 max-w-sm shadow-lg`;
+      alert.innerHTML = `
+          <div class="flex items-center justify-between">
+            <span>${message}</span>
+            <button onclick="this.parentElement.parentElement.remove()" class="ml-4 text-lg font-bold">&times;</button>
+          </div>
+        `;
+
+      document.body.appendChild(alert);
+
+      // Auto remove after 5 seconds
+      setTimeout(() => {
+        if (alert.parentElement) {
+          alert.remove();
+        }
+      }, 5000);
+    }
+
+    // Close modals when clicking outside
+    window.addEventListener("click", (e) => {
+      const paymentModal = document.getElementById("payment-modal");
+      const contactModal = document.getElementById("contact-modal");
+
+      if (e.target === paymentModal) {
+        closePaymentModal();
+      }
+      if (e.target === contactModal) {
+        closeContactModal();
+      }
+    });
+  </script>
+  <script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID"></script>
+  <script src="payment.js"></script>
+</body>
+
+</html>
